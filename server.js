@@ -14,7 +14,16 @@ app.use(express.static('public'));
 
 
 //Database configuration
-mongoose.connect('mongodb://localhost/nytimes');
+// mongoose.connect('mongodb://localhost/nytimes');
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+  
+  mongoose.connect('mongodb://localhost/nytimes');
+}
+
 var db = mongoose.connection;
 
 db.on('error', function(err) {

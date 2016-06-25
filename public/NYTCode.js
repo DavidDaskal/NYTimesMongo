@@ -86,7 +86,7 @@ var articleCounter = 0;
 			}
 
 		 $('.savearticle').on('click', function(buttonData){
-						alert('insideclick');
+						
 						
 
 							  $.ajax({
