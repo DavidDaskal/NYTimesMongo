@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('public'));
 
+var PORT = process.env.PORT || 80; 
+
 
 
 //Database configuration
@@ -20,7 +22,7 @@ if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
 else {
-  
+
   mongoose.connect('mongodb://localhost/nytimes');
 }
 
@@ -85,6 +87,6 @@ app.get('/', function(req, res) {
 
 
 
-app.listen(3000, function() {
-  console.log('App running on port 3000!');
+app.listen(PORT, function() {
+  console.log('App running on',PORT);
 });
